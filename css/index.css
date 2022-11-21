@@ -3738,9 +3738,9 @@ h1.page-title + .tag-cloud-list {
   position: fixed;
   background: var(--anzhiyu-card-bg);
   z-index: 1001;
-  opacity: 0.8;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-  filter: alpha(opacity=80);
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
