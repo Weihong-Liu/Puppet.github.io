@@ -4,6 +4,37 @@
   
     
     <entry>
+        <title>「Task 1」构建自己的图像分类数据集</title>
+        <link href="/posts/be3f2064.html" />
+        <url>/posts/be3f2064.html</url>
+        
+        <content type="html">
+            <![CDATA[<h1 id="1、如何获取图片数据集"><a href="#1、如何获取图片数据集" class="headerlink" title="1、如何获取图片数据集"></a>1、如何获取图片数据集</h1><ul><li>从网络上爬取图片</li><li>自己进行图片拍摄</li></ul><h1 id="2、制作图像分类数据集的注意事项"><a href="#2、制作图像分类数据集的注意事项" class="headerlink" title="2、制作图像分类数据集的注意事项"></a>2、制作图像分类数据集的注意事项</h1><ol><li>删除无关图像</li><li>类别均衡</li><li>多样性、代表性、一致性<blockquote><p>数据集应尽可能包括目标物体的各类场景，训练出的图像分类模型才能在各类测试场景中具备好的泛化性能，防止过拟合。<br>如：<br>不同拍摄环境（光照、设备、拍摄角度、遮挡、远近、大小）<br>不同形态（完整西瓜、切瓣西瓜、切块西瓜）<br>不同部位（全瓜、瓜皮、瓜瓤、瓜子）<br>不同时期（瓜秧、小瓜、大瓜）<br>不同背景（人物、菜地、抠图）<br>不同图像域（照片、漫画、剪贴画、油画）</p></blockquote></li></ol><blockquote><p>机器学习其实本质就像是我们人类学习一样，通过平时进行各种题型的练习，将所有题型都掌握了，那么考试也就手到擒来了。</p></blockquote><h1 id="3、数据集存储"><a href="#3、数据集存储" class="headerlink" title="3、数据集存储"></a>3、数据集存储</h1><p>将同一个图象类别的数据集放在同一个文件夹下，每个类别的图像数量相当</p><h1 id="4、删除异常图像"><a href="#4、删除异常图像" class="headerlink" title="4、删除异常图像"></a>4、删除异常图像</h1><p>删除cv读取异常的图像<br>删除非三通道的图像<br>删除文件夹下与图片无关的其他文件</p><h1 id="5、划分训练集和测试集"><a href="#5、划分训练集和测试集" class="headerlink" title="5、划分训练集和测试集"></a>5、划分训练集和测试集</h1><p>训练集与测试集划分常用比例：0.8:0.2、0.75:0.25<br>训练集图像数据放在train文件夹下<br>测试集图像数据放在val文件夹下</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>GitHub:<a href="https://github.com/TommyZihao/Train_Custom_Dataset">【子豪兄带你两天搞定AI毕业设计】</a><br>Bilibili:<a href="https://www.bilibili.com/video/BV1Jd4y1T7rw/?share_source=copy_web&vd_source=93b3233fa28ea39af3e78e2dcf5409c8">构建自己的图像分类数据集【两天搞定AI毕设】</a></p>]]>
+        </content>
+        
+      
+        <categories>
+            
+            <category> Pytorch预训练图像分类模型识别预测 </category>
+            
+        </categories>
+        
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> 图像分类 </tag>
+            
+            <tag> CV </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    
+    
+    <entry>
         <title>Hello World</title>
         <link href="/posts/4a17b156.html" />
         <url>/posts/4a17b156.html</url>
