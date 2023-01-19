@@ -4,16 +4,32 @@
   
     
     <entry>
-        <title></title>
-        <link href="/posts/0.html" />
-        <url>/posts/0.html</url>
+        <title>「Task 2」Pytorch预训练图像分类模型预测</title>
+        <link href="/posts/f3a840ed.html" />
+        <url>/posts/f3a840ed.html</url>
         
         <content type="html">
             <![CDATA[<h1 id="1、提出一个问题：我们在做深度学习时为什么要使用预训练模型？"><a href="#1、提出一个问题：我们在做深度学习时为什么要使用预训练模型？" class="headerlink" title="1、提出一个问题：我们在做深度学习时为什么要使用预训练模型？"></a>1、提出一个问题：我们在做深度学习时为什么要使用预训练模型？</h1><p>当然是因为自己从头训练（所有权重随机初始化）太费时费力了<br>当我们用卷积神经网络训练自己的数据得到图片分类器时，会发现网络大多数结构包括convolution layers， pooling layers等是用来提取图片特征的，在这些layers的开始部分，提取的特征是相当泛化的，比如说边缘特征、色块特征。越到后面的layers，提取的特征越具有特殊性，例如ImageNet 数据集包含了许多不同品种的狗，到后面的layers便具备了狗的一些共有特征。<br>因此我们通常会将别人训练过的模型拿来用（用这些模型的权重来初始化），通常有两种用法。第一，前面的layers全部保留，只训练最后的分类器（SVM，Softmax等），以使用caffe为例，具体做法就是修改train的prototxt文件里面最后一个fc层的名字和输出数。第二，保留一部分layers（当然也可以不保留），然后重新训练（此时有back propagation的过程而第一没有）。</p><h1 id="2、Pytorch预训练模型有哪些"><a href="#2、Pytorch预训练模型有哪些" class="headerlink" title="2、Pytorch预训练模型有哪些"></a>2、Pytorch预训练模型有哪些</h1><p>VGG16、VGG19、densenet、ResNet、mobilenet</p><h1 id="3、使用ImageNet预训练图像分类模型预测单张图像"><a href="#3、使用ImageNet预训练图像分类模型预测单张图像" class="headerlink" title="3、使用ImageNet预训练图像分类模型预测单张图像"></a>3、使用ImageNet预训练图像分类模型预测单张图像</h1><h2 id="3-1、载入预训练图像分类模型"><a href="#3-1、载入预训练图像分类模型" class="headerlink" title="3.1、载入预训练图像分类模型"></a>3.1、载入预训练图像分类模型</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="comment"># 载入预训练图像分类模型</span></span><br><span class="line">model = models.resnet18(pretrained=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># model = models.resnet152(pretrained=True)</span></span><br><span class="line"></span><br><span class="line">model = model.<span class="built_in">eval</span>()</span><br><span class="line">model = model.to(device)</span><br></pre></td></tr></table></figure><h2 id="3-2、图像预处理"><a href="#3-2、图像预处理" class="headerlink" title="3.2、图像预处理"></a>3.2、图像预处理</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> transforms</span><br><span class="line"><span class="comment"># 测试集图像预处理-RCTN：缩放裁剪、转 Tensor、归一化</span></span><br><span class="line">test_transform = transforms.Compose([transforms.Resize(<span class="number">256</span>),</span><br><span class="line">transforms.CenterCrop(<span class="number">224</span>),</span><br><span class="line">transforms.ToTensor(),</span><br><span class="line">transforms.Normalize(</span><br><span class="line">mean=[<span class="number">0.485</span>, <span class="number">0.456</span>, <span class="number">0.406</span>],</span><br><span class="line">std=[<span class="number">0.229</span>, <span class="number">0.224</span>, <span class="number">0.225</span>])</span><br><span class="line">])</span><br></pre></td></tr></table></figure><blockquote><p>其中图像归一化处理中的<br><code>transforms.Normalize(mean=[0.485, 0.456, 0.406],std=[0.229, 0.224, 0.225])</code>是CV界公认的，其中均值和标准差是利用很多的图片通过统计所计算出来的。</p></blockquote><h2 id="3-3、最终预测结果"><a href="#3-3、最终预测结果" class="headerlink" title="3.3、最终预测结果"></a>3.3、最终预测结果</h2><p><img src="/./img/img_pred.jpg" alt="预测结果"></p><h1 id="4、使用ImageNet预训练图像分类模型预测视频文件"><a href="#4、使用ImageNet预训练图像分类模型预测视频文件" class="headerlink" title="4、使用ImageNet预训练图像分类模型预测视频文件"></a>4、使用ImageNet预训练图像分类模型预测视频文件</h1><p>视频预测本质上与图像预测相似<br>步骤1：使用<code>mmcv</code>库将视频文件读取为一帧一帧的图像<br>步骤2：然后将这些图像通过预训练模型输出结果<br>步骤3：最后将结果通过<code>mmcv</code>库重新整合为视频文件输出</p>]]>
         </content>
         
       
+        <categories>
+            
+            <category> Pytorch预训练图像分类模型识别预测 </category>
+            
+        </categories>
+        
       
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> 图像分类 </tag>
+            
+            <tag> CV </tag>
+            
+        </tags>
+        
     </entry>
     
     
