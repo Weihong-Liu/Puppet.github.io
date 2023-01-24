@@ -4,16 +4,32 @@
   
     
     <entry>
-        <title></title>
-        <link href="/posts/0.html" />
-        <url>/posts/0.html</url>
+        <title>「Task 3」Pytorch迁移学习训练自己的图像分类模型</title>
+        <link href="/posts/31b35529.html" />
+        <url>/posts/31b35529.html</url>
         
         <content type="html">
             <![CDATA[<h1 id="什么是迁移学习？"><a href="#什么是迁移学习？" class="headerlink" title="什么是迁移学习？"></a>什么是迁移学习？</h1><p>迁移学习是一种机器学习的方法，指的是一个预训练的模型被重新用在另一个任务中。</p><h2 id="选择迁移学习的训练方式"><a href="#选择迁移学习的训练方式" class="headerlink" title="选择迁移学习的训练方式"></a>选择迁移学习的训练方式</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#选择一：只微调训练模型最后一层（全连接分类层）</span></span><br><span class="line">model = models.resnet18(pretrained=<span class="literal">True</span>) <span class="comment"># 载入预训练模型</span></span><br><span class="line"><span class="comment"># 修改全连接层，使得全连接层的输出与当前数据集类别数对应</span></span><br><span class="line"><span class="comment"># 新建的层默认 requires_grad=True</span></span><br><span class="line">model.fc = nn.Linear(model.fc.in_features, n_class)</span><br><span class="line"><span class="comment"># 只微调训练最后一层全连接层的参数，其它层冻结</span></span><br><span class="line">optimizer = optim.Adam(model.fc.parameters())</span><br><span class="line"></span><br><span class="line"><span class="comment">#选择二：微调训练所有层</span></span><br><span class="line">model = models.resnet18(pretrained=<span class="literal">True</span>) <span class="comment"># 载入预训练模型</span></span><br><span class="line">model.fc = nn.Linear(model.fc.in_features, n_class)</span><br><span class="line">optimizer = optim.Adam(model.parameters())</span><br><span class="line"></span><br><span class="line"><span class="comment">#选择三：随机初始化模型全部权重，从头训练所有层</span></span><br><span class="line">model = models.resnet18(pretrained=<span class="literal">False</span>) <span class="comment"># 只载入模型结构，不载入预训练权重参数</span></span><br><span class="line">model.fc = nn.Linear(model.fc.in_features, n_class)</span><br><span class="line">optimizer = optim.Adam(model.parameters())</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="连接wandb进行可视化训练日志"><a href="#连接wandb进行可视化训练日志" class="headerlink" title="连接wandb进行可视化训练日志"></a>连接wandb进行可视化训练日志</h1><p><a href="https://wandb.ai/">wandb官网</a><br>登录wandb<br>1.安装 wandb：pip install wandb<br>2.登录 wandb：在命令行中运行wandb login<br>3.按提示复制粘贴API Key至命令行中</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>GitHub:<a href="https://github.com/TommyZihao/Train_Custom_Dataset">【子豪兄带你两天搞定AI毕业设计】</a><br>Bilibili:<a href="https://www.bilibili.com/video/BV1Jd4y1T7rw/?share_source=copy_web&vd_source=93b3233fa28ea39af3e78e2dcf5409c8">构建自己的图像分类数据集【两天搞定AI毕设】</a></p>]]>
         </content>
         
       
+        <categories>
+            
+            <category> Pytorch预训练图像分类模型识别预测 </category>
+            
+        </categories>
+        
       
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> 图像分类 </tag>
+            
+            <tag> CV </tag>
+            
+        </tags>
+        
     </entry>
     
     
