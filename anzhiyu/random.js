@@ -1,1 +1,1 @@
-var posts=["2023/04/10/Linux云服务器安装clash/","2023/04/10/conda换国内的源/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
+var posts=["posts/c2bfdb75.html","posts/84c8fe73.html","posts/789e7a52.html"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
