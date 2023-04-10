@@ -1,1 +1,1 @@
-var posts=["2023/04/08/hello-world copy 2/","2023/04/08/hello-world copy 3/","2023/04/08/hello-world copy 4/","2023/04/08/hello-world copy/","2023/04/08/hello-world/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
+var posts=["2023/04/10/Linux云服务器安装clash/","2023/04/10/conda换国内的源/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
